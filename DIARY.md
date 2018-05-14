@@ -50,4 +50,12 @@ I created a new KeyPair and ran the template inside an existing VPC I had.
 * Ran the aws-vpc.template formation with two AZ’s, in us-west-2a and us-west-2b, and with private subnets also being created (because we’ll use them later on for the extra credit tasks)
 
 
+## Lets Encrypt Everything
 
+- Found a nice guide for getting self-signed certs for Load balancers [link](https://medium.com/@chamilad/adding-a-self-signed-ssl-certificate-to-aws-acm-88a123a04301)
+- Interestingly unable to use AWS::CertificateManager::Certificate as a parameter to CloudFormation. According to some documentation it's only available for public Certs that have been verified by email. So what I do is pass in the CRN as a string in CloudFormation parameter.
+- We'll do the redirecting in Apache itself, allowing traffic to come from ELB straight through to our webservers on both 80 and 443
+
+### Issues encountered
+
+- Wasn't able to get my self signed certs into ACM, because I hadn't put in a FQDN. To check if they are properly uploaded, use the AWS cli `aws acm list-certificates`. Although they may appear in the web console, it doesn't count unless they appear in the cli output.
