@@ -5,9 +5,9 @@
 
 ## First Impressions of the task
 
-- Prior experience with CloudFormation: 0
-
 - Glancing over all the tasks, they all made sense and understoof them, however the gritty details of how to complete them weren’t all that clear. 
+
+- Prior experience with CloudFormation: 0
 
 - in order to try and make the most effective use of learning, I thought YouTube would be the best spot to find some AWS resource about CF. Came across [this](https://www.youtube.com/watch?v=6R44BADNJA8) gem which only lasted 50 minutes, the same investment I would make for an episode of The Flash.
 
@@ -40,4 +40,14 @@ I created a new KeyPair and ran the template inside an existing VPC I had.
 - I updated my template with a new security group thanks to  [markitx](https://github.com/markitx/cloud-formation-templates/blob/master/load-balancers.template#L102), and re-ran it all to ensure it worked fine. And it did.
 
 ![Able to hit our public domain name and get back the instance ID](img/instance_id_returned.png)
+
+## Self critisism over VPC
+
+* I looked at the funky VPC that my StreamCo app running in, and it was actually not the best possible setup as it was something hacked together for a previous project.
+- Furthermore, I thought it beneficial for future people (including myself), be able to recreate this environment properly including all aspects of it. Our goal here is to achieve some form of reproduble build for our infrastructure
+* While looking for a template to start off with, came across this nice image, which was a perfect representation of what I wanted to achieve: ![](https://docs.aws.amazon.com/quickstart/latest/vpc/images/quickstart-vpc-design-fullscreen.png)
+* Except 4 is a bit of overkill, we’ll just configure 2 of them
+* Ran the aws-vpc.template formation with two AZ’s, in us-west-2a and us-west-2b, and with private subnets also being created (because we’ll use them later on for the extra credit tasks)
+
+
 
