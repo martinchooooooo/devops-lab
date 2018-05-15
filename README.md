@@ -1,3 +1,11 @@
+My attempt at the Stream Co Dev Ops challenge.
+
+I didnt' complete the extra tasks, though wrote down my thoughts and ideas as I worked through the basic goals and also gave my possible solutions to the additional challenges. 
+
+Have a read through [DIARY.md](DIARY.md)
+
+---
+
 StreamCo DevOps Lab
 ==========
 
